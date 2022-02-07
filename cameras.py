@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, render_template, request, make_response
 
 app = Flask(__name__)
 
@@ -11,24 +11,41 @@ def ben_cam():
 def sam_cam():
     return render_template('sam.html')
 
-@app.route('/default')
+@app.route('/')
 def default_page():
     return render_template('default.html')
 
-@app.route('/')
-def remote(state):
-    if state == 1:
-        return render_template('ben.html')
-    elif state == 2:
-        return render_template('sam.html')
-    elif state == 3:
-        return render_template('default.html')
-    pass
+@app.route('/remote/', methods=['GET', 'POST'] )
+def remote():
+    with open('state.txt', 'r') as state: 
+        if state == '1':
+            return render_template('ben.html')
+        elif state == '2':
+            return render_template('sam.html')
+        elif state == '3':
+            return render_template('default.html')
+        pass
 
 
-@app.route('/control')
+@app.route('/control', methods=['GET', 'POST'])
 def control():
-    pass
+    if request.method == 'POST':
+        if request.form.get('action1') == 'VALUE1':
+            state = '1'
+            return state
+        elif  request.form.get('action2') == 'VALUE2':
+            state = '2'
+            return state
+        elif  request.form.get('action3') == 'VALUE3':
+            state = '3'
+            return state
+        else:
+            pass # unknown
+    elif request.method == 'GET':
+        return render_template('control.html')
+    
+    return render_template("control.html")
+    
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
