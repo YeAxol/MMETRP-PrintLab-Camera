@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, make_response
 
 app = Flask(__name__)
 
+#Static Routes
 @app.route('/ben')
 def ben_cam():
     return render_template('ben.html')
@@ -15,16 +16,22 @@ def sam_cam():
 def default_page():
     return render_template('default.html')
 
-@app.route('/remote/', methods=['GET', 'POST'] )
+@app.route('/', methods=['GET', 'POST'] )
 def remote():
-    with open('state.txt', 'r') as state: 
-        if state == '1':
-            return render_template('ben.html')
-        elif state == '2':
-            return render_template('sam.html')
-        elif state == '3':
-            return render_template('default.html')
-        pass
+    with open('state.txt', 'r') as file:
+        for line in file:
+            state = line.strip()
+            print(state)
+            if state[0] == '1':
+                print(state)
+                return render_template('ben.html')
+            elif state[0] == '2':
+                print(state)
+                return render_template('sam.html')
+            else:
+                print(state)
+                return render_template('default.html')
+
 
 
 @app.route('/control', methods=['GET', 'POST'])
