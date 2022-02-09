@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template, request, make_response
-
+from os import listdir
 app = Flask(__name__)
 
 #Static Routes
@@ -12,10 +12,6 @@ def ben_cam():
 def sam_cam():
     return render_template('sam.html')
 
-@app.route('/')
-def default_page():
-    return render_template('default.html')
-
 @app.route('/', methods=['GET', 'POST'] )
 def remote():
     with open('state.txt', 'r') as file:
@@ -24,34 +20,29 @@ def remote():
             print(state)
             if state[0] == '1':
                 print(state)
+                file.close()
                 return render_template('ben.html')
             elif state[0] == '2':
                 print(state)
+                file.close()
                 return render_template('sam.html')
             else:
                 print(state)
+                file.close()
                 return render_template('default.html')
 
 
 
-@app.route('/control', methods=['GET', 'POST'])
+@app.route('/control', methods=['POST','GET'])
 def control():
+    input_nopol = request.form['text_box']
     if request.method == 'POST':
-        if request.form.get('action1') == 'VALUE1':
-            state = '1'
-            return state
-        elif  request.form.get('action2') == 'VALUE2':
-            state = '2'
-            return state
-        elif  request.form.get('action3') == 'VALUE3':
-            state = '3'
-            return state
-        else:
-            pass # unknown
-    elif request.method == 'GET':
+        with open('state1.txt', 'w+') as f:
+                f.write(str(input_nopol))
+        return render_template('control.html', nopol=input_nopol)
+    else:
         return render_template('control.html')
-    
-    return render_template("control.html")
+
     
 
 if __name__ == '__main__':
