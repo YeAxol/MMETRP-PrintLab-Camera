@@ -6,17 +6,13 @@ def remote():
     with open('state.txt', 'r') as file:
         for line in file:
             state = line.strip()
-            print(state)
             if state[0] == '1':
-                print(state)
                 file.close()
                 return render_template('ben.html')
             elif state[0] == '2':
-                print(state)
                 file.close()
                 return render_template('sam.html')
             else:
-                print(state)
                 file.close()
                 return render_template('default.html')
 
