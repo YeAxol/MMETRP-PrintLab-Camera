@@ -12,6 +12,9 @@ def remote():
             elif state[0] == '2':
                 file.close()
                 return render_template('sam.html')
+            elif state[0] == '3':
+                file.close()
+                return render_template('combo.html')
             else:
                 file.close()
                 return render_template('default.html')
