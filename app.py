@@ -1,22 +1,17 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+STATE = 0
+
 @app.route('/', methods=['GET', 'POST'] )
 def remote():
-    with open('state.txt', 'r') as file:
-        for line in file:
-            state = line.strip()
-            if state[0] == '1':
-                file.close()
+            if  STATE == 1:
                 return render_template('ben.html')
-            elif state[0] == '2':
-                file.close()
+            elif STATE == 2:
                 return render_template('sam.html')
-            elif state[0] == '3':
-                file.close()
+            elif STATE == 3:
                 return render_template('combo.html')
             else:
-                file.close()
                 return render_template('default.html')
 
 @app.route('/control', methods=['POST','GET'])
