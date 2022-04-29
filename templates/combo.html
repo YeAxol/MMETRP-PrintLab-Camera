@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ben and Sam</title>
 
-
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='/css/style.css') }}"/>
 
 </head>
 
 <body>
     <div id="grid">
         <div id="logo">
-            <img id = "ritLogo" src="../media/bigLogoBandO.png">
+            <img id = "ritLogo" src="{{ url_for('static',filename='/media/bigLogoBandO.png') }}">
         </div>
 
         <div id="title">
             <div id="qr">
-                <img class = "qrCode" src="../media/qrCode.png">
+                <img class = "qrCode" src="{{ url_for('static',filename='/media/qrCode.png') }}">
             </div>
             <div id="qr" class = "qrCode2"></div>
             <h1>MMET Rapid Prototying Lab</h1>
