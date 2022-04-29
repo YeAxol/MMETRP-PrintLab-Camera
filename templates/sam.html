@@ -1,14 +1,44 @@
-<html>
-    <script>
-        function timedRefresh(timeoutPeriod) {setTimeout("location.reload(true);",timeoutPeriod);}
-        window.onload = timedRefresh(10000);
-    </script>
-<br /> 
-<br /> 
-<h1 align="center">Currently Printing</h1>
-<h2 align="center">Need a print? Contact mmetrp@rit.edu or go to</h2>
-<h2 align="center">rit.edu/cet/3dprint</h2> 
-<h3 align="center">Sam</h3> 
-<p align="center"><iframe src="http://10.16.151.13:8080/?action=stream" width="800" height="600" frameborder="0" allowfullscreen></iframe></p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/style.css') }}">
+
+</head>
+
+<body>
+    <div id="grid">
+        <div id="logo">
+            <img id = "ritLogo" src="{{ url_for('static',filename='/media/bigLogoBandO.png') }}">
+        </div>
+
+        <div id="title">
+            <div id="qr">
+                <img class = "qrCode" src="{{ url_for('static',filename='/media/qrCode.png') }}">
+            </div>
+            <div id="qr" class = "qrCode2"></div>
+            <h1>MMET Rapid Prototying Lab</h1>
+            <h2>Contact <a href ="mmetrp@rit.edu">mmetrp@rit.edu</a> or go to <a href = "rit.edu/cet/3dprint">rit.edu/cet/3dprint</a> for a print</h2>
+            <h3>Sam is currently printing</h3>
+        </div>
+
+        <div id="print">
+            <iframe id = "printer" src="http://10.16.151.13:8080/?action=stream"></iframe>
+        </div>
+        
+    </div>
+
+        <script>
+            function timedRefresh(timeoutPeriod) { setTimeout("location.reload(true);", timeoutPeriod); }
+            window.onload = timedRefresh(10000);
+        </script>
+
+</body>
 
 </html>

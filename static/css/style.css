@@ -1,0 +1,92 @@
+/* Grid */
+
+body {
+    background-color: #F76902;
+}
+
+#grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+        "logo"
+        "title"
+        "print"
+
+}
+
+#logo {
+    grid-area: logo;
+    background-color: white;
+
+    border: solid 3px black;
+    border-radius: 4px;
+}
+
+#title {
+    grid-area: title;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#print {
+    grid-area: print;
+    text-align: center;
+}
+
+/* Everything else */
+
+.qrCode {
+    height: 200px;
+    float: left;
+    border: solid 3px black;
+    border-radius: 4px;
+}
+
+.qrCode2 {
+    height: 200px;
+    width: 200px;
+    float: right;
+    border-radius: 4px;
+}
+
+#ritLogo {
+    height: 50px;
+}
+
+#printer {
+    border: solid 6px black;
+    border-radius: 20px;
+    width: 800px;
+    height: 600px;
+}
+
+@font-face {
+    font-family: vollkorn;
+    src: url(fonts/Vollkorn-Regular.ttf);
+}
+
+h1 {
+    font-family: vollkorn;
+    font-size: 50px;
+}
+
+@font-face {
+    font-family: sourceSans;
+    src: url(fonts/SourceSansPro-Regular.ttf);
+}
+
+h2, a {
+    font-family: sourceSans;
+    font-size: 35px;
+}
+
+h3 {
+    font-family: sourceSans;
+    font-size: 25px;
+}
+
+a {
+    color: #262626;
+}
