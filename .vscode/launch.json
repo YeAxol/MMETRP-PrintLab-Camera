@@ -17,7 +17,6 @@
                 "run",
                 "--debugger",
                 "--reload",
-                "--lazy-loading"
             ],
             "jinja": true
         },

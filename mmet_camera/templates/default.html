@@ -1,0 +1,41 @@
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>None</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/style.css') }}">
+    <script type="text/javascript">
+        var socket = io.connect();
+        socket.on('connect', function() {
+                console.log('Connected to the server!');
+            });
+    
+        socket.on('aaa', function() {
+            location.reload();
+        });
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="grid">
+        <div id="logo">
+            <img id = "ritLogo" src="{{ url_for('static',filename='/media/bigLogoBandO.png') }}">
+        </div>
+
+        <div id="title">
+            <div id="qr">
+                <img class = "qrCode" src="{{ url_for('static',filename='/media/qrCode.png') }}">
+            </div>
+            <div id="qr" class = "qrCode2"></div>
+            <h1>MMET Rapid Prototying Lab</h1>
+            <h2>Contact <a href ="mailto://mmetrp@rit.edu">mmetrp@rit.edu</a> or go to <a href = "https://rit.edu/cet/3dprint">rit.edu/cet/3dprint</a> for a print</h2>
+            <h3>Nothing is currently printing</h3>
+        </div>
+        
+    </div>
+</body>
+
+</html>
