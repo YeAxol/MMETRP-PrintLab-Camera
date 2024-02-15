@@ -37,6 +37,11 @@ body {
 
 /* Everything else */
 
+.iframe-content {
+    transform: scale(0.5); /* Zoom out the content by 50% */
+    transform-origin: 0 0; /* Set the origin of the scaling */
+}
+
 .qrCode {
     height: 200px;
     float: left;
@@ -62,11 +67,13 @@ body {
     height: 600px;
 }
 
+
 #print1 {
     border: solid 6px black;
     border-radius: 20px;
     width: 600px;
     height: 450px;
+    object-fit: contain;
 }
 
 #print2 {
@@ -74,13 +81,15 @@ body {
     border-radius: 20px;
     width: 600px;
     height: 450px;
+    object-fit: contain;
 }
 
 #print3 {
     border: solid 6px black;
-    border-radius: 20px;
+    border-radius: 10px;
     width: 600px;
     height: 450px;
+    object-fit: contain;
 }
 
 #print4 {
@@ -88,6 +97,7 @@ body {
     border-radius: 20px;
     width: 600px;
     height: 450px;
+    object-fit: contain;
 }
 
 @font-face {
