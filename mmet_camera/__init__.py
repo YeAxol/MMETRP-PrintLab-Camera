@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit, send
 from time import sleep
 
 app = Flask(__name__,template_folder='./templates',static_folder='./static')
-app.config['SECRET_KEY'] = 'secret'
+app.config['SECRET_KEY'] = '53eF8STVyjB5l743ueb7oQ0UIM5Gr5JnkOh3yRHBvJbbG2JIVB'
 socketio = SocketIO(app, namespace='/socket')
 
 current_state = "default.html"
