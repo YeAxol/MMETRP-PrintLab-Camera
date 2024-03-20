@@ -2,30 +2,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben and Sam</title>
+    <title>Currently Printing</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>    
     <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='/css/style.css') }}"/>
     <script type="text/javascript">
         var socket = io.connect();
-        socket.on('refresh_page', function() {
-                location.reload(true);
-            });
-        socket.on('connect', function() {
-                console.log('Connected to the server!');
-                socket.emit('combo');
-            });
+        socket.on('refresh_page', function() {location.reload(true);});
+        socket.on('connect', function() {socket.emit('combo');});
+        
         socket.on('reset', function(){
-            console.log('reset');
             document.getElementById('print1').style.display = 'none';
             document.getElementById('print2').style.display = 'none';
             document.getElementById('print3').style.display = 'none';
-            document.getElementById('print4').style.display = 'none';});
+            document.getElementById('print4').style.display = 'none';
+            document.getElementById('print5').style.display = 'none';});
     
-        socket.on('1', function(){document.getElementById('print1').style.display = ''; console.log('1');});
-        socket.on('2', function(){document.getElementById('print2').style.display = ''; console.log('2');});
-        socket.on('3', function(){document.getElementById('print3').style.display = ''; console.log('3');});
-        socket.on('4', function(){document.getElementById('print4').style.display = ''; console.log('4');});
-    
+        socket.on('1', function(){document.getElementById('print1').style.display = '';});
+        socket.on('2', function(){document.getElementById('print2').style.display = '';});
+        socket.on('3', function(){document.getElementById('print3').style.display = '';});
+        socket.on('4', function(){document.getElementById('print4').style.display = '';});
+        socket.on('5', function(){document.getElementById('print5').style.display = '';});
+
     </script>
     
 </head>
@@ -48,10 +45,11 @@
         </div>
 
         <div id="print">
-            <iframe seamless="seamless" id = "print1" src="http://10.16.151.12:8080/?action=stream"></iframe>
-            <iframe width="600" height="450" id = "print2" src="http://10.16.151.12:8080/?action=stream"></iframe>
-            <iframe width="600" height="450" id = "print3" src="http://10.16.151.12:8080/?action=stream"></iframe>
-            <iframe width="600" height="450" id = "print4" src="http://10.16.151.12:8080/?action=stream"></iframe>
+            <iframe loading = "lazy" id ="print1" src="http://10.16.151.12:8080/?action=stream"></iframe>
+            <iframe loading = "lazy" id ="print2" src="http://10.16.151.12:8080/?action=stream"></iframe>
+            <iframe loading = "lazy" id ="print3" src="http://10.16.151.12:8080/?action=stream"></iframe>
+            <iframe loading = "lazy" id ="print4" src="http://10.16.151.12:8080/?action=stream"></iframe>
+            <iframe loading = "lazy" id ="print5" src="http://10.16.151.12:8080/?action=stream"></iframe>
         </div>
         
     </div>

@@ -13,32 +13,22 @@ values = []
 def set_combo():
     global values
     socketio.emit('reset')
-    print('reset')
     if "1" in values:
         socketio.emit('1')
-        print("triggered 1")
     if "2" in values:
         socketio.emit('2')
-        print("triggered 2")
     if "3" in values:
         socketio.emit('3')
-        print("triggered 3")
     if "4" in values:
         socketio.emit('4')
-        print("triggered 4")
+    if "5" in values:
+        socketio.emit('5')
 
 @app.route('/', methods=['GET','POST'] )
 def remote():
     global current_state
     global values
-    print("state is =", current_state)
     return render_template(current_state)
-
-@app.route('/refresh', methods=['GET','POST'])
-def refresh():
-    socketio.emit('refresh_page')
-    print("Page refreshed!")
-    return "Page refreshed!"
 
 @app.route('/control', methods=['GET'])
 def control():
@@ -47,20 +37,20 @@ def control():
 @app.route('/submit', methods=['POST'])
 def submitform():
     checkbox_values = request.form.getlist('checkbox[]')
-    # Process checkbox values
     print("Checkbox values:", checkbox_values)
     global current_state
     global values
     values = checkbox_values
     socketio.emit('refresh_page')
-    if checkbox_values:
-        current_state = "combo.html"
+    if checkbox_values == ['1','2','3','4','5']:
+        current_state = "fiveprinters.html"
         socketio.emit('refresh_page')
-        print("COMBO")
+    elif checkbox_values:
+        current_state = "fourprintersorless.html"
+        socketio.emit('refresh_page')
     if not checkbox_values:
         current_state = "default.html"
         socketio.emit('refresh_page')
-        print("DEFAULT")
     return "Form submitted successfully!"
 
 @socketio.on('connect')

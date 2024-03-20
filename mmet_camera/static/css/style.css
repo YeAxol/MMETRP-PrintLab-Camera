@@ -1,4 +1,3 @@
-/* Grid */
 
 body {
     background-color: #F76902;
@@ -33,16 +32,19 @@ body {
 #print {
     grid-area: print;
     text-align: center;
-    
-
+    iframe {
+        border: solid 6px black;
+        border-radius: 20px;
+        width: 600px;
+        height: 450px;
+        object-fit: contain;
+    }
 }
 
 #img{
     width: 600px;
     height: 450px;
 }
-
-/* Everything else */
 
 .qrCode {
     height: 200px;
@@ -60,51 +62,6 @@ body {
 
 #ritLogo {
     height: 50px;
-}
-
-#printer {
-    border: solid 6px black;
-    border-radius: 20px;
-    width: 800px;
-    height: 600px;
-}
-
-#document {
-    width: 600px;
-    height: 450px;
-}
-
-#print1 {
-
-    border: solid 6px black;
-    border-radius: 20px;
-    width: 600px;
-    height: 450px;
-    object-fit: contain;
-}
-
-#print2 {
-    border: solid 6px black;
-    border-radius: 20px;
-    width: 600px;
-    height: 450px;
-    object-fit: contain;
-}
-
-#print3 {
-    border: solid 6px black;
-    border-radius: 10px;
-    width: 600px;
-    height: 450px;
-    object-fit: contain;
-}
-
-#print4 {
-    border: solid 6px black;
-    border-radius: 20px;
-    width: 600px;
-    height: 450px;
-    object-fit: contain;
 }
 
 @font-face {
